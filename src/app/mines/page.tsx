@@ -19,7 +19,7 @@ const mines = () => {
 
     const handleMineClick = (index: number) => {
         if(distinctNumbers.includes(index)) {
-            alert('mine is clicked')
+            alert("mine is clicked");
         }
     }
 
