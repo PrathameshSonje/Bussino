@@ -1,7 +1,17 @@
 import Image from "next/image";
 
-const Mine = () => {
-    return <div className="bg-slate-700 h-28 w-28 rounded-lg flex items-center justify-center">
+interface MineProps {
+    index : number;
+    onClick: (index: number) => void;
+}
+
+const Mine = ({ index, onClick }: MineProps) => {
+
+    const handleClick = () => {
+        onClick(index);
+    };
+
+    return <div className="bg-slate-700 h-28 w-28 rounded-lg flex items-center justify-center" onClick={handleClick}>
         <Image 
             src='/Mine.svg'
             width={100}
