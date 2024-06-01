@@ -16,6 +16,10 @@
   }
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   background: #141414;
 }

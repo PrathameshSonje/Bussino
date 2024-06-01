@@ -36,7 +36,6 @@ export default function SideBar(){
                                 <li key={index} className='text-[#AEAEAE] hover:text-white duration-300 flex gap-[1rem] text-[0.7rem] gap-[1.5rem] flex items-center hover:cursor-pointer'>
                                  {<btn.icon/>}   <p>{btn.title}</p>
                                 </li>
-                                {/* {index==(navbtns.length-1) ? (<></>):(<div className='w-[100%] h-[1px] bg-[#353535]' />)} */}
                                 </>
                             )
                         })

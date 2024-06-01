@@ -4,11 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"commonJS\"} prisma/seed.ts"
+  },
   "dependencies": {
+<<<<<<< HEAD
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.19",
@@ -16,12 +20,23 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"
+=======
+    "@prisma/client": "^5.14.0",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "ts-node": "^10.9.2"
+>>>>>>> origin/master
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
+<<<<<<< HEAD
+=======
+    "prisma": "^5.14.0",
+>>>>>>> origin/master
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
