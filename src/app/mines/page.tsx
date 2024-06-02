@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from "react";
-import Blocks from "@/components/MinesUI/Blocks";
 import { Button, FormControl, MenuItem, Select } from "@mui/material";
 import genNdistinctNumbers from "@/helpers/distincNumbers";
 import Diamond from "@/components/MinesUI/Diamond";
@@ -11,6 +10,7 @@ const mines = () => {
     const grid = [];
     const [distinctNumbers, setDistinctNumbers] = useState([0]);
     const [minesCount, setminesCount] = useState(1);
+    const [blockState, setBlockState] = useState(false);
 
     useEffect(() => {
         const numbers = genNdistinctNumbers(minesCount);
@@ -31,16 +31,18 @@ const mines = () => {
 
     for (let i = 1; i <= 25; i++) {
         if (distinctNumbers.includes(i)) {
-            grid.push(<Mine key={i} index={i} onClick={handleMineClick}/>);
+            grid.push(<Mine key={i} index={i} onClick={handleMineClick} mineFound={blockState} setMineFound={setBlockState} />);
         } else {
-            grid.push(<Diamond key={i} index={i} onClick={handleDiamondClick}/>)
+            grid.push(<Diamond key={i} index={i} onClick={handleDiamondClick} mineFound={blockState} />);
         }
-
+        console.log('grid changed');
     }
 
     const gen = () => {
         const numbers = genNdistinctNumbers(minesCount);
         setDistinctNumbers(numbers);
+        setBlockState(false)
+        console.log('hi from console');
     }
 
     const handleChange = (event: any) => {
