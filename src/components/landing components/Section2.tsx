@@ -26,11 +26,10 @@ export default function Section2(){
                     </div>
                 </span>
                 <span>
-                    <HowToVoteIcon/>
                     <p className="font-bold mb-[1rem] text-white z-3">Elections</p>
                     <div className="overflow-hidden relative rounded-md">
                         <div className="p-[2rem] flex gap-[1rem] flex-col justify-center linear-gradient1 h-[100%] absolute w-[100%] bg-white z-2">
-                            <CasinoIcon className="text-[#FF5F5F] text-[2rem]"/>
+                        <HowToVoteIcon className="text-[#E0FF88]"/>
                             <p className="text-white">Turn your political knowledge into a source<br/>to earn, bid on the candidates</p>
                         </div>
                         <Image
