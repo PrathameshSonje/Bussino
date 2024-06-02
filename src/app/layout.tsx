@@ -17,14 +17,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`flex flex-col h-screen ${inter.className}`}>
-      <Navbar/>
-      <div className="flex flex-1 overflow-auto">
+    <>
+       <html lang="en">
+        <body className={`flex flex-col h-screen ${inter.className}`}>
+        <Navbar/>
+        <div className="flex flex-1 overflow-auto">
         <SideBar/>
         {children}
-      </div>
-    </body>
-    </html>
+        </div>
+      </body>
+      </html>
+    </>
   );
 }
