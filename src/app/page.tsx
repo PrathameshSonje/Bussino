@@ -3,14 +3,15 @@ import Navbar from "@/components/Navbar";
 import SideBar from "@/components/SideBar";
 import Image from "next/image";
 
-export default function Home() {
+export default function Home({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <main className="flex flex-col h-screen">
-      <Navbar/>
-      <div className="flex flex-1 overflow-auto">
-        <SideBar/>
-        <Landing/>
-      </div>
-    </main>
+    <>
+    <Landing/>
+    </>
+        
   );
 }
