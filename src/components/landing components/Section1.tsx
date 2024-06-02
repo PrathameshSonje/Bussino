@@ -1,5 +1,7 @@
 import Image from "next/image";
 import bannerImage from '../../../public/assets/section1banner.png'
+import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 export default function Section1(){
     return(
@@ -13,9 +15,12 @@ export default function Section1(){
                     Register Instantly
                 </button>
                 <p className="font-bold text-white">or</p>
-                <span>
-                    <span>
-
+                <span className="flex gap-[1rem]">
+                    <span className="p-[1rem] bg-[#3E3D3D] rounded-md cursor-pointer">
+                        <GoogleIcon className="text-white"/>
+                    </span>
+                    <span className="p-[1rem] bg-[#3E3D3D] rounded-md cursor-pointer">
+                        <FacebookIcon className="text-white"/>
                     </span>
                 </span>
             </span>
