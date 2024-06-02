@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen">
+      <body className={`flex flex-col h-screen ${inter.className}`}>
       <Navbar/>
       <div className="flex flex-1 overflow-auto">
         <SideBar/>
