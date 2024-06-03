@@ -5,7 +5,7 @@ interface MineProps {
     index: number;
     onClick: (index: number) => void;
     mineFound: boolean;
-    setMineFound: any
+    setMineFound: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Mine = ({ index, onClick, mineFound, setMineFound }: MineProps) => {
@@ -16,7 +16,7 @@ const Mine = ({ index, onClick, mineFound, setMineFound }: MineProps) => {
     };
 
     if (mineFound) {
-        return <div className="bg-slate-700 h-28 w-28 rounded-lg flex items-center justify-center">
+        return <div className="bg-[#3B3B3B] h-28 w-28 rounded-lg flex items-center justify-center">
             <Image
                 src='/Mine.svg'
                 width={80}
@@ -25,7 +25,7 @@ const Mine = ({ index, onClick, mineFound, setMineFound }: MineProps) => {
             />
         </div>  
     } else {
-        return <div className="bg-slate-700 h-28 w-28 rounded-lg flex items-center justify-center" onClick={handleClick}>
+        return <div onClick={handleClick}>
             <Blocks />
         </div>
     }
