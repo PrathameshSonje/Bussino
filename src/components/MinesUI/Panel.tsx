@@ -1,5 +1,5 @@
 import { minesContext } from "@/context/mines/minesContext";
-import genNdistinctNumbers from "@/helpers/mines/distincNumbers";
+import genNdistinctNumbers from "@/helpers/mines/distinctNumbers";
 import { ChangeEvent, useContext, useState } from "react";
 
 const Panel = () => {
