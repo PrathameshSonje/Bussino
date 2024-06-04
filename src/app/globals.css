@@ -33,3 +33,32 @@ body {
     text-wrap: balance;
   }
 }
+
+
+/* animated button */
+.btn-animated1{
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.btn-animated1::before {
+  content: '';
+  width: 1.9rem;
+  height: 5rem;
+  position: absolute;
+  left: -50%;
+  bottom: -0.3rem;
+  background-color: rgba(50, 119, 207, 0.8);
+  z-index: 2;
+  transform: skew(30deg);
+  transition: transform 1.3s ease;
+}
+
+.btn-animated1:hover::before {
+  transform: translate(800px) skew(30deg); 
+}
+/* animated button */
+
+
+
