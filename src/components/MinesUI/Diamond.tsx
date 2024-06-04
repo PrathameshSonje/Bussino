@@ -18,7 +18,7 @@ const Diamond = ({ index, onClick, mineFound }: DiamondProps) => {
     };
 
     if (mineFound) {
-        return <div className="bg-slate-700 h-28 w-28 rounded-lg flex items-center justify-center">
+        return <div className="bg-[#3B3B3B] h-28 w-28 rounded-lg flex items-center justify-center">
             <Image
                 src='/Diamond.svg'
                 width={100}
@@ -27,7 +27,7 @@ const Diamond = ({ index, onClick, mineFound }: DiamondProps) => {
             />
         </div>
     } else if (myState) {
-        return <div className="bg-slate-700 h-28 w-28 rounded-lg flex items-center justify-center">
+        return <div className="bg-[#3B3B3B] h-28 w-28 rounded-lg flex items-center justify-center">
             <Image
                 src='/Diamond.svg'
                 width={100}
@@ -36,7 +36,7 @@ const Diamond = ({ index, onClick, mineFound }: DiamondProps) => {
             />
         </div>
     } else {
-        return <div className="bg-slate-700 h-28 w-28 rounded-lg flex items-center justify-center" onClick={handleClick}>
+        return <div onClick={handleClick}>
             <Blocks />
         </div>
     }
