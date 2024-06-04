@@ -1,13 +1,15 @@
 'use client'
 
-import Grid from "@/components/MinesUI/Grid";
-import Panel from "@/components/MinesUI/Panel";
-import { minesContext } from "@/context/mines/minesContext";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Button, FormControl, MenuItem, Select } from "@mui/material";
+import genNdistinctNumbers from "@/helpers/mines/distincNumbers";
+import Diamond from "@/components/MinesUI/Diamond";
+import Mine from "@/components/MinesUI/Mine";
 
 const mines = () => {
+    const grid = [];
+    const [distinctNumbers, setDistinctNumbers] = useState([0]);
     const [minesCount, setminesCount] = useState(1);
-<<<<<<< HEAD
     const [blockState, setBlockState] = useState(false);
 
     useEffect(() => {
@@ -46,27 +48,34 @@ const mines = () => {
     const handleChange = (event: any) => {
         setminesCount(event.target.value);
     };
-=======
-    const [distinctNumbers, setDistinctNumbers] = useState([0]);
-    const [mineFound, setMineFound] = useState(false);
->>>>>>> 542bfca59a2b3a9ebbb48a8480029c14c4d7e0d7
 
     return (
-        <>
-            <minesContext.Provider value={{ minesCount, setminesCount, distinctNumbers, setDistinctNumbers, mineFound, setMineFound }}>
-                <div className="px-14 pt-10 w-full">
-                    <div className="grid grid-cols-12 rounded-lg">
-                        <div className="col-span-3 bg-[#232323]">
-                            <Panel />
-                        </div>
-                        <div className="col-span-9 py-4 bg-[#101010]">
-                            <Grid />
-                        </div>
-                    </div>
+        <div className="min-h-screen flex flex-col items-center justify-center">
+            <div className="grid grid-cols-5 gap-2.5">
+                {grid}
+            </div>
+            <div className="mt-10 flex items-center justify-center gap-10">
+                <div>
+                    <Button
+                        variant="contained"
+                        onClick={gen}>
+                        Generate
+                    </Button></div>
+                <div className="bg-slate-500 p-1 rounded-md">
+                    <FormControl variant="standard" sx={{ minWidth: 60 }}>
+                        <Select
+                            value={minesCount}
+                            onChange={handleChange}
+                        >
+                            {Array.from({ length: 25 }).map((_, index) => (
+                                <MenuItem value={index + 1}>{index + 1}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </div>
-            </minesContext.Provider>
-        </>
-    )
-}
+            </div>
+        </div>
+    );
+};
 
 export default mines;
