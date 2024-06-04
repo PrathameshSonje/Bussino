@@ -9,36 +9,43 @@ import HowToVoteIcon from '@mui/icons-material/HowToVote';
 export default function Section2(){
     return(
         <div className="p-[4rem] w-[100%] bg-[#181818]">
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-[3rem] w-[100%]">
                 <span>
-                    <p className="font-bold mb-[1rem] text-white z-3">Casino</p>
+                    <p className="font-bold mb-[1rem] gap-[1rem]  text-white z-3 flex items-center"><CasinoIcon className="text-[#FF5F5F] text-[2rem]"/> Casino</p>
                     
-                    <div className="overflow-hidden relative rounded-md">
-                        <div className="p-[2rem] flex gap-[1rem] flex-col justify-center linear-gradient1 h-[100%] absolute w-[100%] bg-white z-2">
-                            <CasinoIcon className="text-[#FF5F5F] text-[2rem]"/>
-                            <p className="text-white">Browse our amazing casino<br/>games and win big prizes</p>
-                        </div>
+                    <div className="overflow-hidden rounded-md duration-300 hover:translate-y-[-0.5rem]">
+                        
                         <Image
                             src={sec2img1}
-                            width={500}
                             alt="casino image"
+                            className="w-[100%]"
                         />
                     </div>
+                    <div className="w-[100%] mt-[1rem]">
+                            <h4 className="mb-[0.3em] text-white font-bold">Leading Online Casino</h4>
+                            <p className="text-[#DAD7D7] text-[0.7rem] ">Browse our giant range of casino games as Stake offers a fair and fun online gambling experience. Play Slots, Live Casino, Blackjack, Baccarat, Roulette, and thousands of classic casino games right from your browser, including your favourite Stake Originals.</p>
+                    </div>
+                    <button className="w-[100%] btn-animated1  bg-[#0052B1] py-[0.8rem] font-bold text-white rounded-sm mt-[1rem] text-[0.8rem]">Go to casino</button>
                 </span>
                 <span>
-                    <p className="font-bold mb-[1rem] text-white z-3">Elections</p>
-                    <div className="overflow-hidden relative rounded-md">
-                        <div className="p-[2rem] flex gap-[1rem] flex-col justify-center linear-gradient1 h-[100%] absolute w-[100%] bg-white z-2">
-                        <HowToVoteIcon className="text-[#E0FF88]"/>
-                            <p className="text-white">Turn your political knowledge into a source<br/>to earn, bid on the candidates</p>
-                        </div>
+                    <p className="font-bold mb-[1rem] text-white z-3 flex gap-[1rem] items-center"><HowToVoteIcon className="text-[#DCE573] text-[2rem]"/> Elections</p>
+                    
+                    <div className="overflow-hidden rounded-md duration-300 hover:translate-y-[-0.5rem]">
+                        
                         <Image
                             src={sec2img2}
-                            width={500}
                             alt="casino image"
+                            className="w-[100%]"
                         />
                     </div>
+                    <div className="w-[100%] mt-[1rem]">
+                            <h4 className="mb-[0.3em] text-white font-bold"> Where Politics Meets Chance!</h4>
+                            <p className="text-[#DAD7D7] text-[0.7rem] ">Browse our giant range of casino games as Stake offers a fair and fun online gambling experience. Play Slots, Live Casino, Blackjack, Baccarat, Roulette, and thousands of classic casino games right from your browser, including your favourite Stake Originals.</p>
+                    </div>
+                    <button className="w-[100%] btn-animated1 bg-[#0052B1] relative py-[0.8rem] font-bold text-white rounded-sm mt-[1rem] text-[0.8rem]">Go to Elections</button>
                 </span>
+                
+                
             </div>
             <div className="w-[100%] relative h-[80vh] mt-[3rem] rounded-md overflow-hidden">
                 <div className="absolute z-2 h-[100%] linear-gradient1 gap-[1rem] w-[100%] flex justify-center p-[2rem] flex-col">
