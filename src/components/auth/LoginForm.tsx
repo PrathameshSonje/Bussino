@@ -6,19 +6,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { months } from "@/lib/months";
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod';
+import { LoginSchema } from "@/lib/types";
 
-const schema = z.object({
-    email: z.string().email(),
-    password: z.string().min(8),
-    username: z.string().min(8).max(14),
-    firstname: z.string(),
-    lastname: z.string(),
-    date: z.string(),
-    month: z.string(),
-    year: z.string(),
-})
-
-type FormFields = z.infer<typeof schema>
+type FormFields = z.infer<typeof LoginSchema>
 
 export const LoginForm = () => {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormFields>({
