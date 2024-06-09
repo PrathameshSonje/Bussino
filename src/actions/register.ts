@@ -1,12 +1,14 @@
 'use server'
 
 import { z } from 'zod'
-import { LoginSchema } from "@/lib/types"
+import { RegisterSchema } from "@/lib/types"
 import prisma from '@/lib/prisma'
 import bcrypt from 'bcrypt'
+import { signIn } from '../../auth'
+import { AuthError } from 'next-auth'
 
-export const register = async (formData: z.infer<typeof LoginSchema>) => {
-    const validatedFields = LoginSchema.safeParse(formData);
+export const registerUser = async (formData: z.infer<typeof RegisterSchema>) => {
+    const validatedFields = RegisterSchema.safeParse(formData);
     if (!validatedFields) return { error: "Invalid fields" };
 
     const {
@@ -37,9 +39,29 @@ export const register = async (formData: z.infer<typeof LoginSchema>) => {
             email,
             username,
             password: hashedpassword,
-            name: firstname + lastname,
+            name: firstname + " " + lastname,
         }
     })
 
+    
+    try {
+        await signIn("credentials", {
+            email,
+            password,
+            redirectTo: '/'
+        })
+    } catch(error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case "CredentialsSignin":
+                    return { error: 'Invalid credentials!'}
+                default:
+                    return { error: 'something went wrong!'}
+            }
+        }
+        throw error;
+    }
+
+    console.log(new_user);
     return { success: "Successfully registered" }
 }

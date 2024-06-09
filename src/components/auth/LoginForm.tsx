@@ -1,7 +1,7 @@
 'use client'
 
 import { login } from "@/actions/login"
-import { CardWrapper } from "./card-wrapper"
+import { CardWrapper } from "./Card-wrapper";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { months } from "@/lib/months";
 import { z } from 'zod'
@@ -11,45 +11,33 @@ import { LoginSchema } from "@/lib/types";
 type FormFields = z.infer<typeof LoginSchema>
 
 export const LoginForm = () => {
+
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormFields>({
-        // resolver: zodResolver(schema)
+        resolver: zodResolver(LoginSchema)
     });
 
     const onSubmit: SubmitHandler<FormFields> = async (data) => {
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        console.log(data);
+        const response = await login(data);
+        console.log(response);
     }
 
     return (
         <div>
             <CardWrapper
-                headerLabel="Create an Account"
-                backButtonLabel="Go back"
+                headerLabel="Welcome Back"
+                backButtonLabel="Dont have an account? "
                 backButtonHref="/"
             >
                 <form className="flex flex-col space-y-4" onSubmit={handleSubmit(onSubmit)}>
                     <div className="space-y-2">
                         <div>
-                            <label htmlFor="email" className="text-sm font-semibold">Email</label>
+                            <label htmlFor="email" className="text-sm font-semibold">Email or Username</label>
                             <input
                                 {...register("email")}
                                 id="email"
-                                type="email"
                                 className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600" />
                             {errors.email && (
                                 <div className="text-red-500 text-xs">{errors.email.message}</div>
-                            )}
-                        </div>
-                        <div>
-                            <label htmlFor="username" className="text-sm font-semibold">Username</label>
-                            <input
-                                {...register("username")}
-                                id="username"
-                                className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600" />
-                            {errors.username ? (
-                                <div className="text-red-500 text-xs">{errors.username.message}</div>
-                            ) : (
-                                <span className="text-xs font-light">Your username must be 3-14 characters long.</span>
                             )}
                         </div>
                     </div>
@@ -63,61 +51,6 @@ export const LoginForm = () => {
                         {errors.password && (
                             <div className="text-red-500 text-xs">{errors.password.message}</div>
                         )}
-                    </div>
-                    <div className="flex space-x-2">
-                        <div>
-                            <label htmlFor="first_name" className="text-sm font-semibold">First name</label>
-                            <input
-                                {...register("firstname")}
-                                id="first_name"
-                                className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600" />
-                        </div>
-                        <div>
-                            <label htmlFor="last_name" className="text-sm font-semibold">Last name</label>
-                            <input
-                                {...register("lastname")}
-                                id="last_name"
-                                className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600" />
-                        </div>
-                    </div>
-
-                    <div id="DOB">
-                        <label htmlFor="DOB" className="text-sm font-semibold">Date of Birth</label>
-                        <div className="flex space-x-2">
-                            <input
-                                {...register("date")}
-                                type="number"
-                                placeholder="DD"
-                                className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600" />
-                            {errors.date && (
-                                <div className="text-red-500 text-xs">{errors.date.message}</div>
-                            )}
-                            <select
-                                {...register("month", {
-                                    required: "Month is required"
-                                })}
-                                id="month"
-                                className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600"
-                            >
-                                <option value={0}>DD</option>
-                                {
-                                    months.map((e, index) => (
-                                        <option key={index} value={index + 1}>{e}</option>
-                                    ))
-                                }
-                            </select>
-                            {errors.month && (
-                                <div className="text-red-500 text-xs">{errors.month.message}</div>
-                            )}
-                            <input
-                                {...register("year")}
-                                type="number"
-                                placeholder="YYYY"
-                                className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600" />
-                            {errors.year && (
-                                <div className="text-red-500 text-xs">{errors.year.message}</div>
-                            )}
-                        </div>
                     </div>
                     <button
                         disabled={isSubmitting}

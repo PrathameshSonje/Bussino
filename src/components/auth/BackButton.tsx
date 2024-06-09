@@ -13,7 +13,7 @@ const BackButton = ({
 }: BackButtonProps) => {
     return (
         <div className="w-full font-normal text-sm flex items-center justify-center">
-            <p>Already have an account?{` `}
+            <p>{label}
                 <span className="font-semibold text-white">
                     <Link
                         href={href}
