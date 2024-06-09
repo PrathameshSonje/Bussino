@@ -31,5 +31,7 @@ export default { providers: [Credentials({
         }
 
         throw new Error("User not found.");
+        //TODO
+        //extend session data
     }
 })] } satisfies NextAuthConfig
