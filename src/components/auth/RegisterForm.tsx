@@ -99,7 +99,7 @@ export const RegisterForm = () => {
                                 id="month"
                                 className="w-full 10 rounded-sm bg-[#141414] p-2 border border-zinc-600"
                             >
-                                <option value={0}>DD</option>
+                                <option value={0}>Month</option>
                                 {
                                     months.map((e, index) => (
                                         <option key={index} value={index + 1}>{e}</option>
