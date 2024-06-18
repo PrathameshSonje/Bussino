@@ -1,9 +1,9 @@
-import { BetsPool } from "@/components/RouletteUI/BetsPool"
+import { GameContent } from "@/components/RouletteUI/GameContent"
 
 const roulette = () => {
     return(
-        <div>
-            <BetsPool />
+        <div className="bg-[#101010] rounded-md">
+            <GameContent />
         </div>
     )
 }

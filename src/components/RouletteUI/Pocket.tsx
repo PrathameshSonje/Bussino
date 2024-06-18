@@ -7,7 +7,7 @@ interface PocketProps {
 
 export const Pocket = ({ NumberValue, ColorValue }: PocketProps) => {
     return (
-        <div className={clsx("h-14 rounded-sm flex justify-center items-center", {
+        <div className={clsx("h-14 rounded-sm flex justify-center items-center cursor-pointer", {
             'bg-red-500 w-full':ColorValue === "ONLYRED",
             'bg-neutral-800 w-full': ColorValue === "ONLYBLACK",
             'bg-red-500 w-14': ColorValue === "RED",
